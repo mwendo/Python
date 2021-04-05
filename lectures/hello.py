@@ -38,3 +38,6 @@ color = input("What is your favorite color?")
 while color != fav_color:
     color = input(f"That is wrong. \n What is your favorite color?")
 print(f"Your favorite color is {color}")
+
+for x in range(2, 5):
+    print(x)
