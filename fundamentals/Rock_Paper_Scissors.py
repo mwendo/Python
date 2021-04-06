@@ -1,14 +1,17 @@
 import random
 
+print('Welcome to the game of rock, paper scissors! May the best person win(: \n')
+
 playerPoints = 0
 computerPoints = 0
 
 while playerPoints !=3 and computerPoints != 3:
-    your_choice = input("Enter a choice (rock,paper, scissors): ")
-    user_selection = ["rock", "paper", "scissors"]
-    cpu_selection = random.choice(user_selection)
+    your_choice = input("Enter a choice (rock, paper, scissors): ")
+    collection = ["rock", "paper", "scissors"]
+    cpu_selection = random.choice(collection)
     
-    print(f"\nUser selection: {your_choice}, Opponent chose {cpu_selection}.\n")
+    print(f"User selection: {your_choice}, Opponent chose {cpu_selection}.")
+
     if your_choice == cpu_selection:
         print("A draw? How boring.. try again, this time with PASSION!")
     elif your_choice == "rock":
@@ -32,12 +35,9 @@ while playerPoints !=3 and computerPoints != 3:
         else: 
             print("Rock SMASH! You lose!!!")
             computerPoints += 1
+
 if playerPoints > computerPoints:
     print("You win! game over.")
 else: 
     playerPoints < computerPoints
     print("You lose!")
-
-
-
-
