@@ -28,5 +28,5 @@ for i in range(int(numbStudents)):
     elif (course_selection == "3"):
         students.append("History")
 
- 
+
 print(students)
