@@ -2,21 +2,18 @@ students = []
 numbStudents = input("How many students do you have?")
 
 for i in range(int(numbStudents)):
-
     # Name
     name = input("Students name: ")
     while (name == ""):
         print("Invalid name, try again.....")
         name = input("Students name: ")
     students.append(name)
-
     # Grade
     grade = input("Students grade: ")
     while (grade == ""):
         print("Invalid grade, try again.....")
         grade = input("Students grade: ")
     students.append(grade)
-
     # Class
     course_selection = input(
         "Select a courese: 1 - Math, 2 - Science, 3 - History: ")
@@ -31,5 +28,5 @@ for i in range(int(numbStudents)):
     elif (course_selection == "3"):
         students.append("History")
 
-
+ 
 print(students)
