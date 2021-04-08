@@ -1,0 +1,18 @@
+h1 {
+    text-align: center;
+}
+
+.parent {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+}
+
+.box {
+    background-color: steelblue;
+    border: 2px solid black;
+    height: 200px;
+    width: 200px;
+    margin: 10px;
+}
