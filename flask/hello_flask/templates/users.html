@@ -8,9 +8,13 @@
 </head>
 <body>
     <h2>These are our users!!!</h2>
-
-    {% for u in users %}
-        <p>{{ u['first_name'] }} {{ u['last_name'] }}</p>
+    <h1>Random Numbers</h1>
+    {% for number in random_numbers %}
+        <p>{{ number }}</p>
+    {% endfor %}
+    <h1>Students</h1>
+    {% for student in students %}
+        <p>{{ student['name'] }} - {{ student['age'] }}</p>
     {% endfor %}
 </body>
 </html>
