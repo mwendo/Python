@@ -5,14 +5,20 @@ h1 {
 .parent {
     display: flex;
     align-items: center;
-    justify-content: space-evenly;
+    /* justify-content: ; */
     flex-wrap: wrap;
 }
 
-.box {
-    background-color: steelblue;
+.box1 {
+    background-color: red;
     border: 2px solid black;
-    height: 200px;
-    width: 200px;
-    margin: 10px;
+    height: 70px;
+    width: 70px;
+}
+
+.box2 {
+    background-color: black;
+    border: 2px solid black;
+    height: 70px;
+    width: 70px;
 }

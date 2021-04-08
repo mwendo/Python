@@ -8,13 +8,23 @@
     <link rel="stylesheet" href="{{url_for('static', filename='css/style.css')}}">
 </head>
 <body>
-    <h1>Welcome!</h1>
+    <h1>Welcome!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!</h1><h2>
     <div class="parent">
-    {% for x in range(0, repeat):  %}
-        <div class="box" style="background-color: {{color_template}};">
+    {% for x in range(0, repeat, 2):  %}
+        <div class="box1" style="background-color: {{color_template}};">
         
         </div>
+        {% for x in range(1, repeat, 2):  %}
+        <div class="box2" style="background-color: {{color_template}};">
+        
+        </div>
+        {% endfor %}
     {% endfor %}
+    {# {% for x in range(1, repeat, 2):  %}
+        <div class="box2" style="background-color: {{color_template}};">
+        
+        </div>
+    {% endfor %} #}
     </div>
 </body>
 </html>
