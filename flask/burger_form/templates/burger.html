@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lunch!</title>
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/style.css') }}">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <a href="/" class="btn btn-info btn-outline-primary">Home</a>
+    <a href="/reset" class="btn btn-danger btn-outline-dark">Reset</a>
+    <div class="d-flex justify-content-around flex-wrap">
+        <div class="card col-4 bg-dark text-light">
+            <div class="card-body">
+                <h2 class="card-title text-primary">{{ burger['name'] }}</h2>
+                <p class="card-text">Meat: {{ burger['meat'] }}</p>
+                <p class="card-text">Topping One: {{ burger['topping_one'] }}</p>
+                <p class="card-text">Topping Two: {{ burger['topping_two'] }}</p>
+            </div>
+            <div class="card-footer">
+                <h3 class="card-subtitle">Calories: {{ burger['calories'] }}</h3>
+            </div>
+        </div>
+        <div class="card col-4 bg-dark text-light">
+            <div class="card-body">
+                <h2 class="card-title text-warning">{{ session['name'] }}</h2>
+                <p class="card-text">Meat: {{ session['meat'] }}</p>
+                <p class="card-text">Topping One: {{ session['topping_one'] }}</p>
+                <p class="card-text">Topping Two: {{ session['topping_two'] }}</p>
+            </div>
+            <div class="card-footer">
+                <h3 class="card-subtitle">Calories: {{ session['calories'] }}</h3>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
