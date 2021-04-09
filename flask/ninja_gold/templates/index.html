@@ -55,7 +55,7 @@
     <h5>Activities:</h5>
     <textarea name="activities" id="activities" cols="100" rows="6">
         {% for activity in session['result']%}
-        <p class="mb-1">{{activity}}</p>
+        {{activity}}
         {% endfor %}</textarea>
 </div>
 <a href="/reset" class="btn btn-danger btn-outline-dark">Reset</a>
