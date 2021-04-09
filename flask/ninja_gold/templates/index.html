@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Page </title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+<!-- Display of your gold -->
+<div class="bank">
+    <h4>Your Gold:</h4>
+    <input type="text" placeholder=0 name="your_gold" value="{{session['your_gold']}}">
+</div>
+
+<!-- Container for 4 forms of gold -->
+<div class="container d-flex justify-content-around">
+    <div class="farm">
+        <form action="/process_money" method="post" class="p-4 col-10 card my-5 mx-3 bg-dark text-light">
+            <h3>Farm</h3>
+            <p>(earns 10-20 gold)</p>
+            <input type="hidden" name="building" value="farm" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div class="cave">
+        <form action="/process_money" method="post" class="p-4 col-10 card my-5 mx-3 bg-dark text-light">
+            <h3>Cave</h3>
+            <p>(earns 5-10 gold)</p>
+            <input type="hidden" name="building" value="cave" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div class="house">
+        <form action="/process_money" method="post" class="p-4 col-10 card my-5 mx-3 bg-dark text-light">
+            <h3>House</h3>
+            <p>(earns 2-5 gold)</p>
+            <input type="hidden" name="building" value="house" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+    <div class="casino">
+        <form action="/process_money" method="post" class="p-4 col-10 card my-5 mx-3 bg-dark text-light">
+            <h3>Casino</h3>
+            <p>(earns/loses 0-50 golds)</p>
+            <input type="hidden" name="building" value="casino" />
+            <input type="submit" value="Find Gold!"/>
+        </form>
+    </div>
+</div>
+
+<!-- Activity display -->
+<div class="activities">
+    <h5>Activities:</h5>
+    <textarea name="activities" id="activities" cols="100" rows="6">
+        {% for activity in session['result']%}
+        <p class="mb-1">{{activity}}</p>
+        {% endfor %}</textarea>
+</div>
+<a href="/reset" class="btn btn-danger btn-outline-dark">Reset</a>
+</body>
+</html>
