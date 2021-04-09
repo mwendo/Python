@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Great Number Game</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1 class="d-flex justify-content-center flex-wrap p-3">Welcome to the Great Number Game!!!</h1>
+    <h3 class="d-flex justify-content-center flex-wrap p-3">I am thinking of a number between 1 and 100</h3>
+    <h4 class="d-flex justify-content-center flex-wrap p-3">Take a guess!</h4>
+
+    <div>
+        <p class="d-flex justify-content-center">{{ result }}</p>
+    </div>
+
+    <form action="/guess" method="post" class="p-4 col-4 mx-auto card my-5 bg-dark text-light">
+        <!-- <label for="guess"></label> -->
+        <input type="text" name="guess" id="guess">
+        <input type="submit" value="Submit">
+    </form>
+</body>
+</html>
