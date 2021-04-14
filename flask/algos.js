@@ -24,6 +24,4 @@ class  SLL{
             runner = runner.next
         }
     }
-
 }
-

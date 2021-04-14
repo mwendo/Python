@@ -1,0 +1,33 @@
+SELECT * FROM dojos_and_ninjas.dojos;
+
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("Chicago", NOW(), NOW()), ("Dallas", NOW(), NOW()), ("New York City", NOW(), NOW());
+
+SELECT * FROM dojos_and_ninjas.dojos;
+DELETE FROM dojos;
+
+SELECT * FROM dojos_and_ninjas.dojos;
+
+INSERT INTO dojos (name, created_at, updated_at)
+VALUES ("Chicago", NOW(), NOW()), ("Dallas", NOW(), NOW()), ("New York City", NOW(), NOW());
+
+SELECT * FROM ninjas;
+
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Micah", "Wendorf", 24, NOW(), NOW(), 4), ("Reinhardt", "Smash", 100, NOW(), NOW(), 4), ("Mei", "Freeze", 34, NOW(), NOW(), 4)
+
+SELECT * FROM ninjas;
+
+INSERT INTO ninjas (first_name, last_name, age, created_at, updated_at, dojo_id)
+VALUES ("Lucio", "Boy", 16, NOW(), NOW(), 5), ("Orisa", "Alien", 1000, NOW(), NOW(), 5), ("Soldier", "76", 52, NOW(), NOW(), 5)
+
+SELECT * FROM ninjas
+WHERE dojo_id = 4;
+
+SELECT * FROM ninjas
+WHERE dojo_id = 5;
+
+SELECT * FROM ninjas
+WHERE dojo_id = 6;
+
+
