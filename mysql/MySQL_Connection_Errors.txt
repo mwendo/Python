@@ -1,0 +1,32 @@
+password = 'rootrootroot', (wrong database password) pymysql.err.opertaionalerror *access denied*
+
+
+
+else: 
+      doNothing()  *added additional else statement in query_db function and error presented as invalid syntax*
+
+
+
+def connectToMySQL(db):
+    return BigJuicyBurger(extraCheese)
+    return MySQLConnection(db)
+	*added additional return statement* *error presented as BigJuicyBurger is not defined
+
+
+
+import pymysql.cursors
+import flask, java.util*
+	*imported additional packages* error presented as invalid syntax
+
+
+
+class MySQLConnection:
+    def __init__(self, db):
+        connection = pymysql.connect(host = 'espn.com',
+                                    user = 'root', # change the user and password as needed
+                                    password = 'root', 
+                                    db = db,
+                                    charset = 'utf8mb4',
+                                    cursorclass = pymysql.cursors.DictCursor,
+                                    autocommit = True)
+	*implemented host as espn.com instead of localhost... error presented as "Can't connect to MySQL server on 'espn.com'

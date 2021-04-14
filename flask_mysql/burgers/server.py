@@ -10,8 +10,7 @@ def home():
 
 @app.route('/create', methods=['POST'])
 def create():
-    query = "INSERT INTO burgers (name,bun,meat,calories,topping_one,topping_two,created_at,updated_at)
-    VALUES (%(name)s, %(bun)s, %(meat)s, %(calories)s, %(topping_ong)s, %(topping_two)s, NOW(), NOW())"
+    query = "INSERT INTO burgers (name,bun,meat,calories,topping_one,topping_two,created_at,updated_at) VALUES (%(name)s, %(bun)s, %(meat)s, %(calories)s, %(topping_ong)s, %(topping_two)s, NOW(), NOW())"
     data = {
         "name":request.form['name'],
         "bun":request.form['bun'],
