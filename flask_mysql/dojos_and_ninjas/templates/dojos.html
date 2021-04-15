@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-flex">
+        <div class="create_dojo col">
+            <h1>New Dojo</h1>
+            <form action="/new_dojos" method='post'>
+                <label for="dojo_name">Name:</label>
+                <input type="text" name="dojo_name" id="dojo_name">
+                <input type="submit" value="Create" class="btn btn-primary btn-outline-dark">
+            </form>
+        </div>
+        <div class="all_dojos col">
+            <h1 class="text-align-center">All Dojos</h1>
+            <div class="box card">
+                {% for i in dojos %}
+                <a href="/dojos/{{i['id']}}" class="card-text border border-dark">{{i['name']}}</a>
+                {% endfor %}
+            </div>
+            <a href="/dojos/ninjas">Add Ninja</a>
+        </div>
+    </div>
+</body>
+</html>
