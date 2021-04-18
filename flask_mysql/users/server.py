@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect
+from flask import Flask, render_template, request, redirect, session, flash
 
 from mysqlconnection import connectToMySQL    # import the function that will return an instance of a connection
 
 app = Flask(__name__)
+app.secret_key = "keep it secret"
 
 @app.route('/')
 def index():
@@ -17,6 +18,25 @@ def create_page():
 
 @app.route('/create', methods=['POST'])
 def create():
+    is_valid = True
+    if len(request.form['first_name']) < 1: 
+        is_valid = False 
+        flash("Please enter a first name")
+        # display validation error
+    if len(request.form['last_name']) < 1:
+        is_valid = False
+        flash("Please enter a last name")
+    if len(request.form['email']) < 2:
+        is_valid = False
+        flash("Email should be at least 2 chracters")
+    if not is_valid: # if any of the fields switched our is_valid toggle to False
+        return redirect('/create_page')
+    else:
+        #add user to database
+        flash("Friend successfully added!")
+        return redirect("/")
+        #display success message
+        #redirect to a mehtod that displays a success page
     query = "INSERT INTO people (first_name, last_name, email, created_at, updated_at) VALUES (%(first_name)s, %(last_name)s, %(email)s, NOW(), NOW())"
     data = {
         "first_name":request.form['first_name'],
@@ -25,7 +45,7 @@ def create():
     }
     mysql = connectToMySQL('people')
     mysql.query_db(query,data)
-    return redirect('/')
+    return redirect('/create_page')
 
 @app.route('/show_page/<int:people_id>')
 def show(people_id):

@@ -70,13 +70,27 @@ def books_home():
 @app.route("/books/<int:books_id>")
 def books_details(books_id):
     query = "SELECT * FROM books JOIN favorites ON books.id = favorites.book_id JOIN authors ON authors.id = favorites.author_id WHERE books.id = %(id)s;"
+    second_query = connectToMySQL("favorite_books").query_db("SELECT * FROM authors;")
     data = {
         "id": books_id,
     }
+    book_query = connectToMySQL("favorite_books").query_db("SELECT * FROM books;")
     books = connectToMySQL('favorite_books').query_db(query, data)
-    
-    return render_template("books_details.html", books = books)
+    return render_template("books_details.html", books = books, second_query = second_query, book_query = book_query)
 
+
+# add author to a specific favorite book
+@app.route("/add_author", methods=['POST'])
+def add_author():
+    query = "INSERT INTO favorites (book_id, author_id) VALUES (%(book_id)s, %(author_id)s);"
+    data = {
+        "book_id": request.form['book_id'],
+        "author_id": request.form['add_author'], 
+    }
+    # id = request.form['book_id']
+    results = connectToMySQL('favorite_books').query_db(query, data)
+    print(results)
+    return redirect("/authors")
 
 if __name__ == "__main__":
     app.run(debug=True)

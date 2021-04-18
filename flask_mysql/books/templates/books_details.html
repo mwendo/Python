@@ -16,5 +16,19 @@
         <p>Last Name: {{i['last_name']}}</p>
         {% endfor %}
     </div>
+
+    <div class="add_favorite_author">
+        <h1>Add Books's Favorite Author</h1>
+        <form action="/add_author" method=post>
+            <input type="hidden" name="book_id" value="{{book_query['id']}}">
+            <label for="add_author">Author:</label>
+            <select name="add_author" id="add_author">
+                {% for i in second_query %}
+                <option value="{{i['id']}}">{{i['first_name']}} {{i['last_name']}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add">
+        </form>
+    </div>
 </body>
 </html>
