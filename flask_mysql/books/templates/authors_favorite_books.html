@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Authors Favorites Books</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <h1>Favorites</h1>
+    <div class="favorite_books col">
+        <table class="table">
+            <tr>
+                <th>Title</th>
+                <th># of pages</th>
+            </tr>
+            {% for favorite_book in books %}
+            <tr>
+                <td>{{favorite_book['title']}}</td>
+                <td>{{favorite_book['num_of_pages']}}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </div>
+<!-- Need to finish form and option selections and back-end on this section -->
+    <div class="add_favorite_book">
+        <h1>Add Author's Favorite</h1>
+        <form action="/add_book" method=post>
+            <input type="hidden" name="author_id" value="{{author_q['id']}}">
+            <label for="add_book">Book:</label>
+            <select name="add_book" id="add_book">
+                {% for i in book_q %}
+                <option value="{{i['id']}}">{{i['title']}}</option>
+                {% endfor %}
+            </select>
+            <input type="submit" value="Add">
+        </form>
+    </div>
+    <a href="/authors">Home</a>
+</body>
+</html>

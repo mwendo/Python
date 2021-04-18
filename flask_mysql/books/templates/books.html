@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Books</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="container d-flex">
+        <div class="create_book col">
+            <h1>New Book</h1>
+            <form action="/create_new_books" method='post'>
+                <label for="title">Title:</label>
+                <input type="text" name="title" id="title">
+                <label for="num_of_pages">Number of pages:</label>
+                <input type="text" name="num_of_pages" id="num_of_pages">
+                <input type="submit" value="Create" class="btn btn-primary btn-outline-dark">
+                <a href="/authors">Home</a>
+            </form>
+        </div>
+        <div class="all_books col">
+            <h1 class="text-align-center">All Books</h1>
+            <div class="box card">
+                {% for i in books %}
+                <a href="/books/{{i['id']}}" class="card-text border border-dark">{{i['title']}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
