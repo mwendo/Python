@@ -1,7 +1,7 @@
 from flask import Flask, render_template, request, redirect, session, flash
 from mysqlconnection import connectToMySQL
 app = Flask(__name__)
-app.secret_key = "Christian is gay"
+app.secret_key = "keep it secret"
 
 @app.route("/")
 def hello():
@@ -37,8 +37,8 @@ def create_user():
         "dojo_location": request.form['dojo_location'],
         "comment": request.form['comment']
     }
-    pussy = connectToMySQL("dojo_survey").query_db(query, data)
-    return redirect ('/', pussy = pussy)
+    pikachu = connectToMySQL("dojo_survey").query_db(query, data)
+    return redirect ('/', pikachu = pikachu)
 
 
 if __name__=="__main__":
