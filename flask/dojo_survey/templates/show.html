@@ -10,22 +10,24 @@
     <h1>Show Page</h1>
 <h3>Info Submitted:</h3>
     <table>
+        {% for star in mysql %}
         <tr>
             <th>Name:</th>
-            <td>{{ name }}</td>
+            <td>{{star['user_name']}}</td>
         </tr>
         <tr>
             <th>Location:</th>
-            <td>{{location}}</td>
+            <td>{{star['your_location']}}</td>
         </tr>
         <tr>
             <th>Favorite Language:</th>
-            <td>{{ language }}</td>
+            <td>{{star['favorite_language']}}</td>
         </tr>
         <tr>
             <th>Comments</th>
-            <td>{{ comment }}</td>
+            <td>{{star['comment']}}</td>
         </tr>
+        {% endfor %}
     </table>
 </body>
 </html>

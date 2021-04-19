@@ -27,19 +27,23 @@ def create_user():
     if not is_valid:
         return redirect('/')
     else:
-        # add user to database
         flash("Friend successfully added!")
-        return redirect('/')
+        query = "INSERT INTO user (user_name, dojo_location, favorite_language, comment, created_at, updated_at) VALUES (%(user_name)s, %(dojo_location)s, %(favorite_language)s, %(comment)s, NOW(), NOW());"
+        print(query)
+        data = {
+            "user_name": request.form['user_name'],
+            "dojo_location": request.form['dojo_location'],
+            "favorite_language": request.form['favorite_language'],
+            "comment": request.form['comment']
+        }
+        pikachu = connectToMySQL("dojo_survey").query_db(query, data)
+        return redirect ('/show_page')
 
-    query = "INSERT INTO user (user_name, dojo_location, favorite_language, comment, created_at, updated_at) VALUES (%(user_name)s, %(dojo_location)s, %(favorite_language)s, %(comment)s, NOW(), NOW());"
-    data = {
-        "user_name": request.form['user_name'],
-        "dojo_location": request.form['dojo_location'],
-        "comment": request.form['comment']
-    }
-    pikachu = connectToMySQL("dojo_survey").query_db(query, data)
-    return redirect ('/', pikachu = pikachu)
 
+@app.route('/show_page')
+def show():
+    mysql = connectToMySQL("dojo_survey").query_db("SELECT * FROM user;")
+    return render_template("show.html", mysql = mysql)
 
 if __name__=="__main__":
     app.run(debug=True)
