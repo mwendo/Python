@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+<body>
+    <div class="header navbar border-bottom border-warning">
+        <h2>CodingDojo Wall</h2>
+        <h2 class="">Welcome {{user['first_name']}}</h2>
+        <a href="/logout">Logout</a>
+    </div>
+    <div class="container-fluid p-5 d-flex align-items-center justify-content-around">
+        <div class="received_messages col">
+            <span class="p-1 border-bottom border-secondary">Messages(s) for You</span>
+        </div>
+        
+        <div class="send-messages col d-flex flex-column flex-wrap">
+            <span class="p-1 border-bottom border-secondary">Send Messages</span>
+            <form action="#" method="post">
+                <label for="">Someone's Name</label>
+                <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                <label for="">Someone's Name</label>
+                <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                <label for="">Someone's Name</label>
+                <textarea name="message" id="message" cols="30" rows="5"></textarea>
+                <label for="">Someone's Name</label>
+                <textarea name="message" id="message" cols="30" rows="5"></textarea>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

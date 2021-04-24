@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+</head>
+<body>
+    <h1>Welcome {{user['first_name']}}</h1>
+
+    <a href="/logout">Logout</a>
+    <a href="/new">Add Magazine</a>
+    <a href="/account/{{user['id']}}">Account</a>
+
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <th>Title:</th>
+                <th>Added By:</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for magazine in magazines %}
+                <tr>
+                    <td> <a href="/show/{{magazine['magazines.id']}}">{{magazine['name']}}</a></td>
+                    <td>{{magazine['first_name']}}</td>
+                </tr>
+        </tbody>
+            {% endfor %}
+    </table>
+</body>
+</html>
